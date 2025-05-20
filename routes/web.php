@@ -71,16 +71,11 @@ Route::middleware('auth')->group(function () {
 */
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
-    Route::get('/', fn () => redirect()->route('admin.dashboard'))->name('admin.home');
+    Route::get('/', fn() => redirect()->route('admin.dashboard'))->name('admin.home');
 
     // Filament dashboard
     Route::get('/dashboard', [Dashboard::class, 'index'])->name('admin.dashboard');
 
     // Admin payment detail
     Route::get('/payments/{id}', [PaymentController::class, 'adminShow'])->name('admin.payments.show');
-});
-
-Route::middleware('guest')->group(function () {
-    Route::get('/login', [LoginController::class, 'login'])->name('login');
-    Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
 });
