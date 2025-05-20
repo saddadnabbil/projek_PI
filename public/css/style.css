@@ -1,0 +1,534 @@
+/* Base Styles */
+html, body {
+    overflow-x: hidden;
+}
+
+/* Navbar Styles */
+.navbar {
+    transition: all 0.3s ease;
+    background-color: transparent !important;
+    padding: 1rem 0;
+}
+
+.navbar.scrolled {
+    background-color: rgba(33, 37, 41, 0.95) !important;
+    padding: 0.5rem 0;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: #fff !important;
+}
+
+.nav-link {
+    font-size: 1rem;
+    padding: 0.5rem 1rem !important;
+    transition: color 0.3s ease;
+    position: relative;
+    color: #fff !important;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #007bff !important;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background: rgba(33, 37, 41, 0.95);
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 0.5rem;
+    }
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #007bff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 50%;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    margin-top: -80px;
+}
+
+.carousel-item {
+    height: 100vh;
+    min-height: 400px; /* Minimum height yang lebih besar */
+    background: no-repeat center center scroll;
+    background-size: cover;
+    position: relative; /* Tambahkan ini */
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* Tingkatkan z-index */
+    width: 90%;
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Perbaiki kontrol carousel */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%;
+    z-index: 12;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    height: 100vh;
+    min-height: 500px;
+    width: 100%;
+}
+
+.carousel-caption {
+    bottom: 30%;
+    z-index: 2;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.carousel-caption h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 1rem;
+}
+
+.carousel-caption p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    margin-bottom: 1.5rem;
+}
+
+/* Services & Card Styles - Menggabungkan style yang sama */
+.services .card,
+.recent-events .card,
+.events-list .card {
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    height: 100%;
+    cursor: pointer;
+}
+
+.services .card:hover,
+.recent-events .card:hover,
+.events-list .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* Menghapus duplikasi hover effect yang ada di bawah */
+/* Why Choose Us */
+.why-us {
+    overflow: hidden;
+}
+
+.why-us i {
+    color: #007bff;
+}
+
+.why-us .col-md-3 {
+    margin-bottom: 2rem;
+}
+
+/* Events Page Styles */
+.events-header {
+    background: linear-gradient(to right, #007bff, #0056b3);
+}
+
+.events-filter {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Events Filter Interaktif */
+.events-filter .form-select,
+.events-filter .form-control {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.events-filter .form-select:hover,
+.events-filter .form-control:hover {
+    border-color: #007bff;
+    box-shadow: 0 2px 4px rgba(0,123,255,0.1);
+}
+
+.events-filter .btn-primary {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.events-filter .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.events-filter .btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Card Event Interaktif */
+.events-list .card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.events-list .card:hover .card-img-top {
+    opacity: 0.9;
+}
+
+.events-list .card-img-top {
+    transition: opacity 0.3s ease;
+}
+
+.events-list .badge {
+    transition: all 0.3s ease;
+}
+
+.events-list .card:hover .badge {
+    transform: scale(1.05);
+}
+
+/* Loading State */
+.btn-primary:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.spinner-border {
+    width: 1rem;
+    height: 1rem;
+}
+
+.events-filter .form-select:focus,
+.events-filter .form-control:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 0 0.2rem rgba(0,86,179,.25);
+}
+
+.events-filter .btn-primary {
+    padding: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Category Badges */
+.badge.bg-engagement {
+    background-color: #ff6b6b !important;
+}
+
+.badge.bg-gathering {
+    background-color: #51cf66 !important;
+}
+
+.badge.bg-birthday {
+    background-color: #ffd43b !important;
+    color: #212529;
+}
+
+.events-list .badge {
+    font-size: 0.8rem;
+    padding: 0.5em 1em;
+}
+
+/* Footer & Social Media */
+footer {
+    overflow: hidden;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    text-decoration: none !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-3px);
+    color: #007bff !important;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .carousel-item,
+    .services .card,
+    .recent-events .card {
+        transition: none;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 1400px) {
+    .carousel-caption {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .carousel-caption h1 {
+        font-size: 3rem;
+    }
+    .carousel-caption p {
+        font-size: 1.3rem;
+    }
+    .carousel-caption {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        padding: 1rem 0;
+    }
+    
+    .nav-item {
+        margin: 0.5rem 0;
+    }
+    
+    .nav-link::after {
+        display: none;
+    }
+    
+    .navbar-collapse {
+        background: #212529;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 0.5rem;
+    }
+
+    .carousel-caption h1 {
+        font-size: 2.5rem;
+    }
+    .carousel-caption p {
+        font-size: 1.2rem;
+    }
+    
+    .events-header {
+        text-align: center;
+    }
+    
+    .events-header form {
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        min-height: 400px;
+    }
+    
+    .carousel-caption {
+        bottom: 20%;
+        padding: 15px;
+    }
+    
+    .carousel-caption h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    section {
+        padding: 3rem 0;
+    }
+    
+    footer .col-md-4 {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+
+    .events-filter .form-select,
+    .events-filter .form-control,
+    .events-filter .btn-primary {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .events-list .card-img-top {
+        height: 180px;
+    }
+    
+    .events-header h1 {
+        font-size: 2rem;
+    }
+    
+    .events-header .lead {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-item {
+        min-height: 300px;
+    }
+    
+    .carousel-caption {
+        bottom: 15%;
+        padding: 10px;
+        max-width: 100%;
+    }
+    
+    .carousel-caption h1 {
+        font-size: 1.8rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 0.9rem;
+    }
+    
+    section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    .recent-events .card img {
+        height: 180px;
+    }
+    
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .events-filter .col-md-3 {
+        margin-bottom: 1rem;
+    }
+    
+    .pagination {
+        font-size: 0.9rem;
+    }
+body {
+    padding-top: 80px;
+}}
+/* Services Page Styles */
+.services-header {
+    background: linear-gradient(to right, #007bff, #0056b3);
+}
+
+.services-list .card {
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.services-list .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.services-list .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.services-list .list-unstyled li {
+    margin-bottom: 0.5rem;
+}
+
+.why-us i {
+    color: #007bff;
+}
+
+.cta {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/cta-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.cta .btn-lg {
+    padding: 1rem 2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Login Page Styles */
+.login-page {
+    min-height: calc(100vh - 80px);
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+}
+
+.card-header {
+    border-bottom: none;
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.form-control {
+    padding: 0.75rem;
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.btn-primary {
+    padding: 0.75rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
