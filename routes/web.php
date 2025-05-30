@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\LoginController; // Pastikan namespace ini benar
+use App\Http\Controllers\Auth\LoginController; 
 use App\Http\Controllers\{
     HomeController,
     EventController,
@@ -9,9 +10,9 @@ use App\Http\Controllers\{
     GalleryController,
     ContactController,
     PaymentController,
-    ProfileController
 };
 use App\Filament\Pages\Dashboard;
+
 use App\Http\Controllers\Auth\RegisterController;
 
 /*
@@ -59,7 +60,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile');
-    Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('/payment', [PaymentController::class, 'index'])->name('payments');
 
     Route::post('/events/{event}/book', [EventController::class, 'book'])->name('events.book');

@@ -17,7 +17,7 @@
     @yield('content')
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
+    <footer class="bg-dark text-white py-4 mt-auto">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
