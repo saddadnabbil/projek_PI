@@ -13,7 +13,7 @@
                             <span class="badge bg-primary px-3 py-2">Engagement</span>
                             @break
                         @case('gathering')
-                            <span class="badge bg-success px-3 py-2">Family Gathering</span>
+                            <span class="badge bg-success px-3 py-2">Gathering</span>
                             @break
                         @case('birthday')
                             <span class="badge bg-warning px-3 py-2">Birthday Party</span>
@@ -54,56 +54,17 @@
                     <div class="card-body">
                         <h4>Fitur Event</h4>
                         <div class="row mt-3">
-                            @switch($event->category)
-                                @case('engagement')
-                                    <div class="col-md-6">
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Dekorasi Premium</li>
-                                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Catering Mewah</li>
-                                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Dokumentasi Pre-Wedding</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>MC Profesional</li>
-                                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Live Music</li>
-                                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Free Konsultasi</li>
-                                        </ul>
-                                    </div>
-                                    @break
-                                @case('gathering')
-                                    <div class="col-md-6">
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Venue Outdoor/Indoor</li>
-                                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Catering Buffet</li>
-                                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Games & Activities</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Sound System</li>
-                                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Dokumentasi</li>
-                                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Free Konsultasi</li>
-                                        </ul>
-                                    </div>
-                                    @break
-                                @case('birthday')
-                                    <div class="col-md-6">
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Dekorasi Tematik</li>
-                                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Catering & Kue</li>
-                                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Entertainment</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>MC Profesional</li>
-                                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Dokumentasi</li>
-                                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Free Konsultasi</li>
-                                        </ul>
-                                    </div>
-                                    @break
-                            @endswitch
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    @foreach (explode(',', $event->features) as $feature)
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-success me-2"></i> {{ trim($feature) }}
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            
+                            
                         </div>
                     </div>
                 </div>

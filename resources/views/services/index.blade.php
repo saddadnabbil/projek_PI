@@ -25,17 +25,17 @@
                         <h5 class="card-title">Engagement Event</h5>
                         <p class="card-text">Wujudkan momen pertunangan yang berkesan dengan dekorasi elegan dan catering premium.</p>
                         <ul class="list-unstyled">
-                            <li><i class="fas fa-check text-success me-2"></i>Dekorasi mewah</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Catering premium</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Dokumentasi profesional</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Dekorasi</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Perencanaan</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Dokumentasi</li>
                             <li><i class="fas fa-check text-success me-2"></i>Entertainment</li>
                         </ul>
                         <div class="price-tag mt-3">
-                            <h4 class="text-primary">Rp 25.000.000</h4>
+                            <h4 class="text-primary">Rp 8.000.000</h4>
                         </div>
                     </div>
                     <div class="card-footer bg-white border-top-0">
-                        <a href="{{ route('payment.show', ['service' => 'Engagement Event', 'amount' => 25000000]) }}" class="btn btn-primary w-100 mb-2">Pesan Sekarang</a>
+                        <a href="{{ route('payment.show', ['service' => 'Engagement Event', 'amount' => 8000000]) }}" class="btn btn-primary w-100 mb-2">Pesan Sekarang</a>
                         <a href="/contact" class="btn btn-outline-primary w-100">Hubungi Kami</a>
                     </div>
                 </div>
@@ -46,20 +46,20 @@
                 <div class="card h-100">
                     <img src="{{ asset('images/event-2.jpg') }}" class="card-img-top" alt="Gathering Service">
                     <div class="card-body">
-                        <h5 class="card-title">Family Gathering</h5>
+                        <h5 class="card-title">Gathering</h5>
                         <p class="card-text">Ciptakan momen kebersamaan yang tak terlupakan bersama keluarga tercinta.</p>
                         <ul class="list-unstyled">
-                            <li><i class="fas fa-check text-success me-2"></i>Venue outdoor/indoor</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Games seru</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Catering</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Dekorasi</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Perencanaan</li>
                             <li><i class="fas fa-check text-success me-2"></i>Dokumentasi</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Game Seru</li>
                         </ul>
                         <div class="price-tag mt-3">
-                            <h4 class="text-primary">Rp 15.000.000</h4>
+                            <h4 class="text-primary">Rp 5.000.000</h4>
                         </div>
                     </div>
                     <div class="card-footer bg-white border-top-0">
-                        <a href="{{ route('payment.show', ['service' => 'Family Gathering', 'amount' => 15000000]) }}" class="btn btn-primary w-100 mb-2">Pesan Sekarang</a>
+                        <a href="{{ route('payment.show', ['service' => 'Family Gathering', 'amount' => 5000000]) }}" class="btn btn-primary w-100 mb-2">Pesan Sekarang</a>
                         <a href="/contact" class="btn btn-outline-primary w-100">Hubungi Kami</a>
                     </div>
                 </div>
@@ -73,17 +73,17 @@
                         <h5 class="card-title">Birthday Party</h5>
                         <p class="card-text">Rayakan hari spesial dengan pesta ulang tahun yang meriah dan berkesan.</p>
                         <ul class="list-unstyled">
-                            <li><i class="fas fa-check text-success me-2"></i>Dekorasi tematik</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Kue ulang tahun</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Entertainment</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Dekorasi</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Perencanaan</li>
                             <li><i class="fas fa-check text-success me-2"></i>Dokumentasi</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Kue Ulang Tahun</li>
                         </ul>
                         <div class="price-tag mt-3">
-                            <h4 class="text-primary">Rp 10.000.000</h4>
+                            <h4 class="text-primary">Rp 5.000.000</h4>
                         </div>
                     </div>
                     <div class="card-footer bg-white border-top-0">
-                        <a href="{{ route('payment.show', ['service' => 'Birthday Party', 'amount' => 10000000]) }}" class="btn btn-primary w-100 mb-2">Pesan Sekarang</a>
+                        <a href="{{ route('payment.show', ['service' => 'Birthday Party', 'amount' => 5000000]) }}" class="btn btn-primary w-100 mb-2">Pesan Sekarang</a>
                         <a href="/contact" class="btn btn-outline-primary w-100">Hubungi Kami</a>
                     </div>
                 </div>

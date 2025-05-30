@@ -12,6 +12,7 @@ use App\Http\Controllers\{
     ProfileController
 };
 use App\Filament\Pages\Dashboard;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,11 @@ Route::prefix('events')->group(function () {
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'login'])->name('login');
     Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
+    
+    // Tambahkan route untuk registrasi
+    Route::get('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'create'])->name('register');    
+    // Seharusnya (benar)
+    Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'store'])->name('register.store');
 });
 
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->name('logout');
@@ -52,7 +58,9 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->
 */
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::put('password', [PasswordController::class, 'update'])->name('password.update');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile');
+    Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('/payment', [PaymentController::class, 'index'])->name('payments');
 
     Route::post('/events/{event}/book', [EventController::class, 'book'])->name('events.book');
@@ -71,7 +79,7 @@ Route::middleware('auth')->group(function () {
 */
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
-    Route::get('/', fn() => redirect()->route('admin.dashboard'))->name('admin.home');
+    // Route::get('/', fn() => redirect()->route('admin.dashboard'))->name('admin.home');
 
     // Filament dashboard
     Route::get('/dashboard', [Dashboard::class, 'index'])->name('admin.dashboard');
@@ -79,3 +87,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     // Admin payment detail
     Route::get('/payments/{id}', [PaymentController::class, 'adminShow'])->name('admin.payments.show');
 });
+
+// add auth.php
+

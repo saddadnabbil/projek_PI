@@ -21,8 +21,8 @@ class LoginController extends Controller
             $request->session()->regenerate();
 
             // Cek apakah pengguna adalah admin
-            if (Auth::user()->isAdmin()) {
-                return redirect()->route('admin.dashboard');
+            if (Auth::user()->role === 'admin') {
+                return redirect()->route('filament.admin.pages.dashboard');
             }
 
             // Jika bukan admin, arahkan ke halaman utama

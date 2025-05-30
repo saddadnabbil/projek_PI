@@ -15,11 +15,13 @@ class Event extends Model
         'image',
         'event_date',
         'location',
-        'status'
+        'status',
+        'features'
     ];
 
     protected $casts = [
-        'event_date' => 'date'
+        'event_date' => 'date',
+        'features' => 'array',
     ];
 
     public function galleries(): HasMany

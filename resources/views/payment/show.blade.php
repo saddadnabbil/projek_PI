@@ -13,6 +13,7 @@
                         <h5>Detail Pembayaran:</h5>
                         <p>Layanan: {{ $service }}</p>
                         <p>Total Pembayaran: Rp {{ number_format($amount, 0, ',', '.') }}</p>
+                        <p>DP (10%): Rp {{ number_format($amount * 0.1, 0, ',', '.') }}</p>
                         
                         <h5 class="mt-4">Informasi Rekening:</h5>
                         <p class="mb-2">Transfer Bank:</p>

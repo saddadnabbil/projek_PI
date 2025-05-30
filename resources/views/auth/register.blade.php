@@ -6,14 +6,22 @@
         <div class="col-md-6">
             <div class="card shadow">
                 <div class="card-body p-5">
-                    <h3 class="text-center mb-4">Login</h3>
+                    <h3 class="text-center mb-4">Registrasi</h3>
                     
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('register') }}">
                         @csrf
                         
                         <div class="mb-3">
+                            <label for="name" class="form-label">Nama Lengkap</label>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required autofocus>
+                            @error('name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required autofocus>
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required>
                             @error('email')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -27,17 +35,17 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="remember" name="remember">
-                            <label class="form-check-label" for="remember">Ingat Saya</label>
+                        <div class="mb-3">
+                            <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
                         </div>
 
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">Login</button>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Daftar</button>
                         </div>
 
                         <div class="text-center mt-3">
-                            <p class="mb-0">Belum punya akun? <a href="{{ route('register') }}" class="text-primary">Daftar</a></p>
+                            <p>Sudah punya akun? <a href="{{ route('login') }}">Login di sini</a></p>
                         </div>
                     </form>
                 </div>

@@ -12,9 +12,9 @@ class PaymentController extends Controller
     public function show($service)
     {
         $amounts = [
-            'Engagement Event' => 25000000,
-            'Family Gathering' => 15000000,
-            'Birthday Party' => 10000000
+            'Engagement Event' => 8000000,
+            'Family Gathering' => 5000000,
+            'Birthday Party' => 5000000
         ];
 
         $amount = $amounts[$service] ?? 0;

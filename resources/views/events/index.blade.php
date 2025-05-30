@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-6">
-                <h1>Our Events</h1>
+                <h1>Event Kami</h1>
                 <p class="lead">Temukan berbagai event menarik yang kami selenggarakan</p>
             </div>
         </div>
@@ -22,7 +22,7 @@
                     <select class="form-select shadow-sm" name="category" id="categoryFilter">
                         <option value="">Semua Kategori</option>
                         <option value="engagement" {{ request('category') == 'engagement' ? 'selected' : '' }}>Engagement</option>
-                        <option value="gathering" {{ request('category') == 'gathering' ? 'selected' : '' }}>Family Gathering</option>
+                        <option value="gathering" {{ request('category') == 'gathering' ? 'selected' : '' }}>Gathering</option>
                         <option value="birthday" {{ request('category') == 'birthday' ? 'selected' : '' }}>Birthday Party</option>
                     </select>
                 </div>
@@ -66,16 +66,13 @@
                                 <div class="badge bg-primary px-3 py-2 mb-3 align-self-start">Engagement</div>
                                 @break
                             @case('gathering')
-                                <div class="badge bg-success px-3 py-2 mb-3 align-self-start">Family Gathering</div>
+                                <div class="badge bg-success px-3 py-2 mb-3 align-self-start">Gathering</div>
                                 @break
                             @case('birthday')
                                 <div class="badge bg-warning px-3 py-2 mb-3 align-self-start">Birthday Party</div>
                                 @break
                         @endswitch
                         <h5 class="card-title fw-bold mb-3 text-truncate">{{ $event->title }}</h5>
-                        <div class="card-text text-muted mb-4 flex-grow-1" style="line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
-                            {!! strip_tags($event->description) !!}
-                        </div>
                         <div class="d-flex justify-content-between align-items-center text-muted small">
                             <span class="d-flex align-items-center">
                                 <i class="fas fa-calendar me-2"></i>

@@ -53,6 +53,9 @@ class EventResource extends Resource
                         Forms\Components\RichEditor::make('description')
                             ->label('Deskripsi')
                             ->required(),
+                        Forms\Components\TagsInput::make('features')
+                            ->label('Fitur-fitur')
+                            ->separator(','),
                         Forms\Components\Select::make('status')
                             ->label('Status')
                             ->options([
@@ -116,6 +119,7 @@ class EventResource extends Resource
                     ])
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ]);
@@ -126,6 +130,7 @@ class EventResource extends Resource
         return [
             'index' => Pages\ListEvents::route('/'),
             'create' => Pages\CreateEvent::route('/create'),
+            'view' => Pages\ViewEvent::route('/{record}'),
             'edit' => Pages\EditEvent::route('/{record}/edit'),
         ];
     }

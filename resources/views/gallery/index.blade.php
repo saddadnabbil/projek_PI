@@ -31,7 +31,7 @@
                                         <span class="badge bg-primary">Engagement</span>
                                         @break
                                     @case('gathering')
-                                        <span class="badge bg-success">Family Gathering</span>
+                                        <span class="badge bg-success">Gathering</span>
                                         @break
                                     @case('birthday')
                                         <span class="badge bg-warning">Birthday Party</span>

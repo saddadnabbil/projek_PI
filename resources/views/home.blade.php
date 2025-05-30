@@ -81,7 +81,7 @@
             <div class="col-md-3 text-center mb-4">
                 <i class="fas fa-check-circle fa-3x text-primary mb-3"></i>
                 <h5>Berpengalaman</h5>
-                <p>10+ tahun pengalaman dalam industri event organizer</p>
+                <p>5 tahun pengalaman dalam industri event organizer</p>
             </div>
             <div class="col-md-3 text-center mb-4">
                 <i class="fas fa-users fa-3x text-primary mb-3"></i>
@@ -112,7 +112,7 @@
                     <img src="{{ asset('images/event-1.jpg') }}" class="card-img-top" alt="Engagement Event">
                     <div class="card-body">
                         <h5 class="card-title">Engagement Party</h5>
-                        <p class="card-text">Pertunangan mewah di Ballroom Hotel Grand Hyatt</p>
+                        <p class="card-text">Pertunangan</p>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@
                 <div class="card">
                     <img src="{{ asset('images/event-2.jpg') }}" class="card-img-top" alt="Gathering Event">
                     <div class="card-body">
-                        <h5 class="card-title">Family Gathering</h5>
+                        <h5 class="card-title">Gathering</h5>
                         <p class="card-text">Acara gathering keluarga besar di Villa Puncak</p>
                     </div>
                 </div>

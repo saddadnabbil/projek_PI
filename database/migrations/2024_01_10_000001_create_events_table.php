@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->date('event_date');
             $table->string('location');
+            $table->json('features')->nullable();
             $table->enum('status', ['upcoming', 'ongoing', 'completed'])->default('upcoming');
             $table->timestamps();
         });
