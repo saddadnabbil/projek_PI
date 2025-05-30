@@ -58,7 +58,6 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->
 */
 
 Route::middleware('auth')->group(function () {
-    Route::put('password', [PasswordController::class, 'update'])->name('password.update');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile');
     Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('/payment', [PaymentController::class, 'index'])->name('payments');
@@ -88,12 +87,5 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/payments/{id}', [PaymentController::class, 'adminShow'])->name('admin.payments.show');
 });
 
-<<<<<<< HEAD
 // add auth.php
 
-=======
-Route::middleware('guest')->group(function () {
-    Route::get('/login', [LoginController::class, 'login'])->name('login');
-    Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
-});
->>>>>>> 28759817e9fa4e8cbc6949fd57b771ef61e1fe89
