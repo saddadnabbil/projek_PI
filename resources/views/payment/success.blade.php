@@ -3,22 +3,72 @@
 @section('content')
 <div class="container py-5" style="margin-top: 80px;">
     <div class="row justify-content-center">
-        <div class="col-md-8 text-center">
+        <div class="col-md-8">
             <div class="card shadow">
                 <div class="card-body">
-                    <div class="mb-4">
-                        <i class="fas fa-check-circle text-success" style="font-size: 5rem;"></i>
+                    <div class="row mb-4">
+                        <div class="col-sm-6">
+                            <h3 class="text-dark mb-1">INVOICE</h3>
+                            <small class="text-muted">Status: <span class="badge bg-warning">Menunggu Verifikasi</span></small>
+                        </div>
+                        <div class="col-sm-6 text-sm-end">
+                            <img src="{{ asset('images/logo.png') }}" alt="Logo" style="height: 50px;">
+                        </div>
                     </div>
-                    <h2 class="mb-4">Pembayaran Berhasil!</h2>
-                    <div class="alert alert-info mb-4">
-                        <h5>Detail Pembayaran:</h5>
-                        <p class="mb-1">Layanan: {{ session('payment_details.service') }}</p>
-                        <p class="mb-1">Total: Rp {{ number_format(session('payment_details.amount'), 0, ',', '.') }}</p>
-                        <p class="mb-0">Status: Menunggu Verifikasi</p>
+                    
+                    <hr class="my-4">
+                    
+                    <div class="row mb-4">
+                        <div class="col-sm-6">
+                            <h6 class="mb-3">Detail Layanan:</h6>
+                            <div><strong>{{ session('payment_details.service') }}</strong></div>
+                        </div>
+                        <div class="col-sm-6 text-sm-end">
+                            <h6 class="mb-3">Tanggal:</h6>
+                            <div>{{ now()->format('d M Y') }}</div>
+                        </div>
                     </div>
-                    <p class="lead mb-4">Tim kami akan memverifikasi pembayaran Anda dan menghubungi Anda segera.</p>
-                    <div class="mt-4">
-                        <a href="{{ route('home') }}" class="btn btn-primary">Kembali ke Beranda</a>
+                    
+                    <div class="table-responsive-sm mb-4">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Deskripsi</th>
+                                    <th class="text-end">Jumlah</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    // Ganti
+                                    {{ session('payment_details.service') }}
+                                    {{ session('payment_details.amount') }}
+                                    
+                                    // Menjadi
+                                    {{ $paymentDetails['service'] }}
+                                    {{ $paymentDetails['amount'] }}
+                                    <td class="text-end">Rp {{ number_format(session('payment_details.amount'), 0, ',', '.') }}</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Total</th>
+                                    <th class="text-end">Rp {{ number_format(session('payment_details.amount'), 0, ',', '.') }}</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <p class="text-muted mb-0">
+                                <strong>Catatan:</strong><br>
+                                Tim kami akan memverifikasi pembayaran Anda dan menghubungi Anda segera.
+                                Simpan bukti pembayaran ini untuk referensi di masa mendatang.
+                            </p>
+                        </div>
+                        <div class="col-sm-4 text-sm-end">
+                            <a href="{{ route('home') }}" class="btn btn-primary w-100">Kembali ke Beranda</a>
+                        </div>
                     </div>
                 </div>
             </div>
