@@ -52,16 +52,8 @@ class PaymentController extends Controller
             // Kirim email ke user
             Mail::to($payment->email)->send(new PaymentNotification($payment));
 
-            // Setelah payment berhasil disimpan
-            // Simpan detail pembayaran di session
-            session([
-                'payment_details' => [
-                    'service' => $payment->service,
-                    'amount' => $payment->amount
-                ]
-            ]);
-
-            return redirect()->route('payment.success')
+            // Redirect ke success page dengan ID
+            return redirect()->route('payment.success', $payment->id)
                 ->with('success', 'Pembayaran berhasil dikonfirmasi! Tim kami akan segera memproses pesanan Anda.');
 
         } catch (\Exception $e) {
@@ -70,10 +62,15 @@ class PaymentController extends Controller
         }
     }
 
-    public function success()
+    public function success($id)
     {
-        // Hapus pengecekan session yang terlalu ketat
-        return view('payment.success');
+        $payment = Payment::find($id);
+        
+        if (!$payment) {
+            return redirect()->route('home')->with('error', 'Data pembayaran tidak ditemukan.');
+        }
+
+        return view('payment.success', compact('payment'));
     }
 
     public function adminShow($id)

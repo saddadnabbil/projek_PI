@@ -66,9 +66,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/events/{event}/book', [EventController::class, 'book'])->name('events.book');
 
     Route::prefix('payment')->group(function () {
-        Route::get('/{service}', [PaymentController::class, 'show'])->name('payment.show');
+        Route::get('/success/{id}', [PaymentController::class, 'success'])->name('payment.success');
         Route::post('/confirm', [PaymentController::class, 'confirm'])->name('payment.confirm');
-        Route::get('/success', [PaymentController::class, 'success'])->name('payment.success');
+        Route::get('/{service}', [PaymentController::class, 'show'])->name('payment.show');
     });
 });
 
