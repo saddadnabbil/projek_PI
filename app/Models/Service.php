@@ -13,6 +13,7 @@ class Service extends Model
         'icon',
         'image',
         'features',
+        'price',
         'is_active'
     ];
 
@@ -28,5 +29,19 @@ class Service extends Model
         static::creating(function ($service) {
             $service->slug = Str::slug($service->name);
         });
+        
+        static::updating(function ($service) {
+            $service->slug = Str::slug($service->name);
+        });
+    }
+
+    public function getFormattedPriceAttribute()
+    {
+        return 'Rp ' . number_format($this->price, 0, ',', '.');
+    }
+
+    public function getSeoDescriptionAttribute()
+    {
+        return strip_tags($this->description);
     }
 }
