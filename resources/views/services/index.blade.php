@@ -17,77 +17,41 @@
 <section class="services-list py-5">
     <div class="container">
         <div class="row">
+            @forelse($services as $service)
             <!-- Service Card -->
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
-                    <img src="{{ asset('images/event-1.jpg') }}" class="card-img-top" alt="Engagement Service">
+                    <img src="{{ $service->image ? asset('storage/' . $service->image) : ($loop->index == 0 ? asset('images/event-1.jpg') : ($loop->index == 1 ? asset('images/event-2.jpg') : asset('images/event-3.jpg'))) }}" 
+                         class="card-img-top" alt="{{ $service->name }}">
                     <div class="card-body">
-                        <h5 class="card-title">Engagement Event</h5>
-                        <p class="card-text">Wujudkan momen pertunangan yang berkesan dengan dekorasi elegan dan catering premium.</p>
+                        <h5 class="card-title">{{ $service->name }}</h5>
+                        <p class="card-text">{{ $service->seo_description }}</p>
                         <ul class="list-unstyled">
-                            <li><i class="fas fa-check text-success me-2"></i>Dekorasi</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Perencanaan</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Dokumentasi</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Entertainment</li>
+                            @if(is_array($service->features))
+                                @foreach($service->features as $feature)
+                                <li><i class="fas fa-check text-success me-2"></i>{{ $feature }}</li>
+                                @endforeach
+                            @endif
                         </ul>
                         <div class="price-tag mt-3">
-                            <h4 class="text-primary">Rp 8.000.000</h4>
+                            <h4 class="text-primary">{{ $service->formatted_price }}</h4>
                         </div>
                     </div>
                     <div class="card-footer bg-white border-top-0">
-                        <a href="{{ route('payment.show', ['service' => 'Engagement Event', 'amount' => 8000000]) }}" class="btn btn-primary w-100 mb-2">Pesan Sekarang</a>
+                        <a href="{{ route('payment.show', ['service' => $service->name, 'amount' => $service->price]) }}" 
+                           class="btn btn-primary w-100 mb-2">Pesan Sekarang</a>
                         <a href="/contact" class="btn btn-outline-primary w-100">Hubungi Kami</a>
                     </div>
                 </div>
             </div>
-
-            <!-- Service Card -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <img src="{{ asset('images/event-2.jpg') }}" class="card-img-top" alt="Gathering Service">
-                    <div class="card-body">
-                        <h5 class="card-title">Gathering</h5>
-                        <p class="card-text">Ciptakan momen kebersamaan yang tak terlupakan bersama keluarga tercinta.</p>
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-check text-success me-2"></i>Dekorasi</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Perencanaan</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Dokumentasi</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Game Seru</li>
-                        </ul>
-                        <div class="price-tag mt-3">
-                            <h4 class="text-primary">Rp 5.000.000</h4>
-                        </div>
-                    </div>
-                    <div class="card-footer bg-white border-top-0">
-                        <a href="{{ route('payment.show', ['service' => 'Family Gathering', 'amount' => 5000000]) }}" class="btn btn-primary w-100 mb-2">Pesan Sekarang</a>
-                        <a href="/contact" class="btn btn-outline-primary w-100">Hubungi Kami</a>
-                    </div>
+            @empty
+            <div class="col-12">
+                <div class="alert alert-info text-center">
+                    <h4>Belum ada layanan tersedia</h4>
+                    <p>Silakan kembali lagi nanti.</p>
                 </div>
             </div>
-
-            <!-- Service Card -->
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <img src="{{ asset('images/event-3.jpg') }}" class="card-img-top" alt="Birthday Service">
-                    <div class="card-body">
-                        <h5 class="card-title">Birthday Party</h5>
-                        <p class="card-text">Rayakan hari spesial dengan pesta ulang tahun yang meriah dan berkesan.</p>
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-check text-success me-2"></i>Dekorasi</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Perencanaan</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Dokumentasi</li>
-                            <li><i class="fas fa-check text-success me-2"></i>Kue Ulang Tahun</li>
-                        </ul>
-                        <div class="price-tag mt-3">
-                            <h4 class="text-primary">Rp 5.000.000</h4>
-                        </div>
-                    </div>
-                    <div class="card-footer bg-white border-top-0">
-                        <a href="{{ route('payment.show', ['service' => 'Birthday Party', 'amount' => 5000000]) }}" class="btn btn-primary w-100 mb-2">Pesan Sekarang</a>
-                        <a href="/contact" class="btn btn-outline-primary w-100">Hubungi Kami</a>
-                    </div>
-                </div>
-            </div>
+            @endforelse
         </div>
     </div>
 </section>

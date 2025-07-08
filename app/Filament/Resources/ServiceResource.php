@@ -43,6 +43,11 @@ class ServiceResource extends Resource
                 Forms\Components\TagsInput::make('features')
                     ->label('Fitur-fitur')
                     ->separator(','),
+                Forms\Components\TextInput::make('price')
+                    ->label('Harga')
+                    ->numeric()
+                    ->prefix('Rp')
+                    ->required(),
                 Forms\Components\Toggle::make('is_active')
                     ->label('Aktif')
                     ->default(true)
@@ -61,6 +66,9 @@ class ServiceResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nama')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('price')
+                    ->label('Harga')
+                    ->money('IDR'),
                 Tables\Columns\IconColumn::make('is_active')
                     ->label('Status')
                     ->boolean(),
