@@ -42,7 +42,9 @@ class ServiceResource extends Resource
                     ->required(),
                 Forms\Components\TagsInput::make('features')
                     ->label('Fitur-fitur')
-                    ->separator(','),
+                    ->separator(',')
+                    ->placeholder('Masukkan fitur dan tekan Enter')
+                    ->hint('Pisahkan setiap fitur dengan koma atau Enter'),
                 Forms\Components\TextInput::make('price')
                     ->label('Harga')
                     ->numeric()
@@ -66,6 +68,15 @@ class ServiceResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nama')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('features')
+                    ->label('Fitur')
+                    ->formatStateUsing(function ($state) {
+                        if (is_array($state)) {
+                            return implode(', ', $state);
+                        }
+                        return $state;
+                    })
+                    ->wrap(),
                 Tables\Columns\TextColumn::make('price')
                     ->label('Harga')
                     ->money('IDR'),
@@ -91,5 +102,3 @@ class ServiceResource extends Resource
         ];
     }
 }
-
- 

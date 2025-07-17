@@ -25,14 +25,26 @@ class Service extends Model
     protected static function boot()
     {
         parent::boot();
-        
+
         static::creating(function ($service) {
             $service->slug = Str::slug($service->name);
         });
-        
+
         static::updating(function ($service) {
             $service->slug = Str::slug($service->name);
         });
+    }
+
+    public function setFeaturesAttribute($value)
+    {
+        if (is_string($value)) {
+            // Jika string, ubah jadi array dengan explode koma
+            $this->attributes['features'] = json_encode(array_map('trim', explode(',', $value)));
+        } elseif (is_array($value)) {
+            $this->attributes['features'] = json_encode($value);
+        } else {
+            $this->attributes['features'] = json_encode([]);
+        }
     }
 
     public function getFormattedPriceAttribute()
