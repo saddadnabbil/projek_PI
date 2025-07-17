@@ -29,7 +29,7 @@
                     <p>
                         <i class="fas fa-phone"></i> +62 878-8146-5628<br>
                         <i class="fas fa-envelope"></i> mabiyu25@gmail.com<br>
-                        <i class="fas fa-map-marker-alt"></i> Jl.raya yasmin kota bogor 
+                        <i class="fas fa-map-marker-alt"></i> Jl. Bratasena 2, Tegal Gundil, Kota Bogor, Jawa Barat
                     </p>
                 </div>
                 <div class="col-md-4">

@@ -33,7 +33,7 @@ Route::prefix('events')->group(function () {
     Route::get('/search', [EventController::class, 'search'])->name('events.search');
     Route::get('/{event}', [EventController::class, 'show'])->name('events.show');
 });
-
+Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
 /*
 |--------------------------------------------------------------------------
 | Authentication (User & Admin)

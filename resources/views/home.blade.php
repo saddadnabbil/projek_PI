@@ -107,33 +107,23 @@
     <div class="container">
         <h2 class="text-center mb-5">Event Terbaru</h2>
         <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="{{ asset('images/event-1.jpg') }}" class="card-img-top" alt="Engagement Event">
-                    <div class="card-body">
-                        <h5 class="card-title">Engagement Party</h5>
-                        <p class="card-text">Pertunangan</p>
+            @forelse($latestEvents as $event)
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="{{ asset('storage/' . $event->image) }}" class="card-img-top" alt="{{ $event->title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $event->title }}</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">{!! $event->description !!}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="{{ asset('images/event-2.jpg') }}" class="card-img-top" alt="Gathering Event">
-                    <div class="card-body">
-                        <h5 class="card-title">Gathering</h5>
-                        <p class="card-text">Acara gathering keluarga besar di Villa Puncak</p>
-                    </div>
+            @empty
+                <div class="col-12 text-center">
+                    <p>Belum ada event terbaru.</p>
                 </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="{{ asset('images/event-3.jpg') }}" class="card-img-top" alt="Birthday Event">
-                    <div class="card-body">
-                        <h5 class="card-title">Sweet Seventeen</h5>
-                        <p class="card-text">Perayaan ulang tahun ke-17 yang meriah</p>
-                    </div>
-                </div>
-            </div>
+            @endforelse
         </div>
     </div>
 </section>

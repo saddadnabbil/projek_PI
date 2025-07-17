@@ -26,7 +26,7 @@
                         <i class="fas fa-map-marker-alt fa-2x text-primary me-3"></i>
                         <div>
                             <h5>Alamat</h5>
-                            <p>Jl. Raya Bogor No. 123<br>Depok, Jawa Barat 16424</p>
+                            <p>Jl. Bratasena 2,<br>Tegal Gundil, Kota Bogor, Jawa Barat</p>
                         </div>
                     </div>
 
@@ -34,7 +34,7 @@
                         <i class="fas fa-phone fa-2x text-primary me-3"></i>
                         <div>
                             <h5>Telepon</h5>
-                            <p>+62 812-3456-7890</p>
+                            <p>+62 878 8146 5628</p>
                         </div>
                     </div>
 
@@ -42,7 +42,7 @@
                         <i class="fas fa-envelope fa-2x text-primary me-3"></i>
                         <div>
                             <h5>Email</h5>
-                            <p>info@eventorganizer.com</p>
+                            <p>mabiyu25@gmail.com</p>
                         </div>
                     </div>
 
@@ -125,7 +125,7 @@
     <div class="container-fluid p-0">
         <div class="map-container" style="height: 400px;">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.0671667683897!2d106.8269873!3d-6.3725698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ec18ce4caa35%3A0x86c476e8f7b40f0e!2sDepok%2C%20Kota%20Depok%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1635000000000!5m2!1sid!2sid" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.503283776466!2d106.8140120754664!3d-6.5841853643646004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c42a8b998d41%3A0xe97cd0aad97295c2!2sJl.%20Bratasena%202%20No.2%2C%20RT.01%2FRW.15%2C%20Tegal%20Gundil%2C%20Kec.%20Bogor%20Utara%2C%20Kota%20Bogor%2C%20Jawa%20Barat%2016152!5e0!3m2!1sid!2sid!4v1752328137668!5m2!1sid!2sid" 
                 width="100%" 
                 height="100%" 
                 style="border:0;" 

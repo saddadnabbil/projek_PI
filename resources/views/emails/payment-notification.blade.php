@@ -7,7 +7,7 @@ Pembayaran baru telah diterima dengan detail sebagai berikut:
 **Email:** {{ $payment->email }}  
 **Telepon:** {{ $payment->phone }}  
 **Layanan:** {{ $payment->service }}  
-**Jumlah:** Rp {{ number_format($payment->amount, 0, ',', '.') }}  
+**Jumlah:** Rp {{ number_format($payment->amount * 0.1 , 0, ',', '.') }}  
 **Metode:** {{ $payment->payment_method }}  
 
 Terima kasih telah melakukan pembayaran. Tim kami akan segera memverifikasi pembayaran Anda.

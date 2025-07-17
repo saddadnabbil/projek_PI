@@ -32,8 +32,12 @@ class PaymentResource extends Resource
                 Tables\Columns\TextColumn::make('service')
                     ->label('Layanan'),
                 Tables\Columns\TextColumn::make('amount')
-                    ->label('Jumlah')
-                    ->money('IDR'),
+                    ->label('Jumlah (DP 10%)')
+                    ->money('IDR')
+                    ->formatStateUsing(function ($state) {
+                        $dpAmount = $state * 0.1; // Menghitung 10% dari harga asli
+                        return number_format($dpAmount, 0, ',', '.');
+                    }),
                 Tables\Columns\TextColumn::make('payment_method')
                     ->label('Metode Pembayaran'),
                 Tables\Columns\ImageColumn::make('proof_image')
@@ -101,8 +105,14 @@ class PaymentResource extends Resource
                             ->danger()
                             ->send();
                     }),
-                Tables\Actions\ViewAction::make(),
-            ]);
+                        Tables\Actions\EditAction::make(),
+                    ])
+                    ->bulkActions([
+                        Tables\Actions\BulkActionGroup::make([
+                            Tables\Actions\DeleteBulkAction::make(),
+                        ]),
+                    ]);
+                Tables\Actions\ViewAction::make();
     }
 
     public static function getRelations(): array

@@ -52,7 +52,7 @@
                                 <tfoot>
                                     <tr>
                                         <th>Total</th>
-                                        <th class="text-end">Rp {{ number_format($payment->amount, 0, ',', '.') }}</th>
+                                        <th class="text-end">Rp {{ number_format($payment->amount * 0.1 , 0, ',', '.') }}</th>
                                     </tr>
                                 </tfoot>
                             </table>
